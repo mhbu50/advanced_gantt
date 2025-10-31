@@ -4,4 +4,4 @@ Gantt is a performance-optimized, fully customizable Gantt chart suite for your 
 
 #### License
 
-MIT
+MIT# advanced_gantt
