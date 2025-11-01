@@ -1,0 +1,209 @@
+{
+  "tasks": [
+    {
+      "id": "project_PROJECT-001",
+      "name": "Website Redesign",
+      "startDate": "2024-01-01",
+      "endDate": "2024-03-31",
+      "percentDone": 25,
+      "expanded": true,
+      "leaf": false,
+      "type": "project",
+      "status": "Open",
+      "priority": "High",
+      "department": "IT",
+      "company": "Test Company",
+      "description": "Complete website redesign project",
+      "estimatedCost": 50000,
+      "actualCost": 12500
+    },
+    {
+      "id": "TASK-001",
+      "name": "Design Homepage",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-15",
+      "percentDone": 50,
+      "parentId": "project_PROJECT-001",
+      "leaf": true,
+      "type": "task",
+      "status": "Working",
+      "priority": "High",
+      "project": "PROJECT-001",
+      "expectedTime": 40,
+      "actualTime": 20,
+      "weight": 1,
+      "assignedTo": "user@example.com",
+      "department": "IT",
+      "company": "Test Company",
+      "description": "Design the new homepage layout"
+    },
+    {
+      "id": "TASK-002",
+      "name": "Homepage Review",
+      "startDate": "2024-01-16",
+      "endDate": "2024-01-16",
+      "percentDone": 0,
+      "parentId": "TASK-001",
+      "leaf": true,
+      "type": "milestone",
+      "status": "Open",
+      "priority": "Medium",
+      "project": "PROJECT-001",
+      "expectedTime": 2,
+      "actualTime": 0,
+      "weight": 0.5,
+      "assignedTo": "manager@example.com",
+      "department": "IT",
+      "company": "Test Company",
+      "description": "Review homepage design"
+    },
+    {
+      "id": "TASK-003",
+      "name": "Develop Homepage",
+      "startDate": "2024-01-17",
+      "endDate": "2024-02-15",
+      "percentDone": 10,
+      "parentId": "project_PROJECT-001",
+      "leaf": true,
+      "type": "task",
+      "status": "Open",
+      "priority": "High",
+      "project": "PROJECT-001",
+      "expectedTime": 80,
+      "actualTime": 8,
+      "weight": 2,
+      "assignedTo": "developer@example.com",
+      "department": "IT",
+      "company": "Test Company",
+      "description": "Implement homepage design"
+    },
+    {
+      "id": "TASK-004",
+      "name": "Testing & QA",
+      "startDate": "2024-02-16",
+      "endDate": "2024-02-28",
+      "percentDone": 0,
+      "parentId": "project_PROJECT-001",
+      "leaf": true,
+      "type": "task",
+      "status": "Open",
+      "priority": "Medium",
+      "project": "PROJECT-001",
+      "expectedTime": 40,
+      "actualTime": 0,
+      "weight": 1.5,
+      "assignedTo": "tester@example.com",
+      "department": "IT",
+      "company": "Test Company",
+      "description": "Test homepage functionality"
+    },
+    {
+      "id": "TASK-005",
+      "name": "Go Live",
+      "startDate": "2024-03-01",
+      "endDate": "2024-03-01",
+      "percentDone": 0,
+      "parentId": "project_PROJECT-001",
+      "leaf": true,
+      "type": "milestone",
+      "status": "Open",
+      "priority": "High",
+      "project": "PROJECT-001",
+      "expectedTime": 4,
+      "actualTime": 0,
+      "weight": 0.5,
+      "assignedTo": "manager@example.com",
+      "department": "IT",
+      "company": "Test Company",
+      "description": "Deploy homepage to production"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "dep_TASK-002_TASK-001",
+      "fromTask": "TASK-001",
+      "toTask": "TASK-002",
+      "type": 2,
+      "lag": 0
+    },
+    {
+      "id": "dep_TASK-003_TASK-002",
+      "fromTask": "TASK-002",
+      "toTask": "TASK-003",
+      "type": 2,
+      "lag": 0
+    },
+    {
+      "id": "dep_TASK-004_TASK-003",
+      "fromTask": "TASK-003",
+      "toTask": "TASK-004",
+      "type": 2,
+      "lag": 0
+    },
+    {
+      "id": "dep_TASK-005_TASK-004",
+      "fromTask": "TASK-004",
+      "toTask": "TASK-005",
+      "type": 2,
+      "lag": 0
+    }
+  ],
+  "resources": [
+    {
+      "id": "user@example.com",
+      "name": "John Designer",
+      "email": "user@example.com",
+      "image": null
+    },
+    {
+      "id": "manager@example.com",
+      "name": "Jane Manager",
+      "email": "manager@example.com",
+      "image": null
+    },
+    {
+      "id": "developer@example.com",
+      "name": "Bob Developer",
+      "email": "developer@example.com",
+      "image": null
+    },
+    {
+      "id": "tester@example.com",
+      "name": "Alice Tester",
+      "email": "tester@example.com",
+      "image": null
+    }
+  ],
+  "assignments": [
+    {
+      "id": "TASK-001_user@example.com",
+      "taskId": "TASK-001",
+      "resourceId": "user@example.com",
+      "units": 100
+    },
+    {
+      "id": "TASK-002_manager@example.com",
+      "taskId": "TASK-002",
+      "resourceId": "manager@example.com",
+      "units": 100
+    },
+    {
+      "id": "TASK-003_developer@example.com",
+      "taskId": "TASK-003",
+      "resourceId": "developer@example.com",
+      "units": 100
+    },
+    {
+      "id": "TASK-004_tester@example.com",
+      "taskId": "TASK-004",
+      "resourceId": "tester@example.com",
+      "units": 100
+    },
+    {
+      "id": "TASK-005_manager@example.com",
+      "taskId": "TASK-005",
+      "resourceId": "manager@example.com",
+      "units": 100
+    }
+  ]
+}

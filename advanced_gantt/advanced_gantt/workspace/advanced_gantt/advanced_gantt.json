@@ -1,0 +1,91 @@
+{
+ "charts": [],
+ "creation": "2024-10-31 20:00:00.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "doctype": "Workspace",
+ "extends": "",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "icon": "gantt",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Advanced Gantt",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Gantt Chart",
+   "link_count": 0,
+   "link_to": "/gantt",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Gantt Chart Settings",
+   "link_count": 0,
+   "link_to": "Gantt Chart Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Projects",
+   "link_count": 0,
+   "link_to": "Project",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tasks",
+   "link_count": 0,
+   "link_to": "Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-10-31 20:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Advanced Gantt",
+ "name": "Advanced Gantt",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "",
+   "label": "Gantt Chart",
+   "link_to": "/gantt",
+   "type": "Page"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Projects",
+   "link_to": "Project",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Tasks",
+   "link_to": "Task",
+   "type": "DocType"
+  }
+ ],
+ "title": "Advanced Gantt"
+}

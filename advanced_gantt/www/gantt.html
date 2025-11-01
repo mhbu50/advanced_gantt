@@ -1,0 +1,181 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ _("Advanced Gantt Chart") }}{% endblock %}
+
+{% block head_include %}
+    <link rel="stylesheet" href="/assets/advanced_gantt/css/gantt_styles.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-header">
+                <h1>{{ _("Advanced Gantt Chart") }}</h1>
+                <p class="text-muted">{{ _("Interactive project and task management with Gantt visualization") }}</p>
+            </div>
+            
+            <!-- Filters and Controls -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="project-filter" class="form-label">{{ _("Project") }}</label>
+                            <select id="project-filter" class="form-select">
+                                <option value="">{{ _("All Projects") }}</option>
+                                {% for project in projects %}
+                                <option value="{{ project.name }}">
+                                    {{ project.project_name or project.name }}
+                                    <span class="text-muted">({{ project.status }})</span>
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="start-date" class="form-label">{{ _("Start Date") }}</label>
+                            <input type="date" id="start-date" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="end-date" class="form-label">{{ _("End Date") }}</label>
+                            <input type="date" id="end-date" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <div class="d-flex gap-2">
+                                <button id="apply-filters" class="btn btn-primary">
+                                    <i class="fa fa-filter"></i> {{ _("Apply") }}
+                                </button>
+                                <button id="reset-filters" class="btn btn-outline-secondary">
+                                    <i class="fa fa-refresh"></i> {{ _("Reset") }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gantt Chart Container -->
+            <div class="card">
+                <div class="card-body p-0">
+                    <div id="gantt-container" style="height: 600px;">
+                        <div class="gantt-loading">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">{{ _("Loading...") }}</span>
+                            </div>
+                            {{ _("Loading Gantt chart...") }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Help Section -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">{{ _("How to Use") }}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>{{ _("Features") }}</h6>
+                            <ul>
+                                <li>{{ _("View projects and tasks in Gantt timeline") }}</li>
+                                <li>{{ _("Drag and drop to reschedule tasks") }}</li>
+                                <li>{{ _("Resize task bars to change duration") }}</li>
+                                <li>{{ _("Create task dependencies") }}</li>
+                                <li>{{ _("Update task progress") }}</li>
+                                <li>{{ _("Filter by project and date range") }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>{{ _("Requirements") }}</h6>
+                            <div class="alert alert-info">
+                                <strong>{{ _("Note:") }}</strong> {{ _("This is a demo implementation. To use the full Bryntum Gantt functionality, you need to:") }}
+                                <ol class="mt-2 mb-0">
+                                    <li>{{ _("Obtain a Bryntum Gantt license") }}</li>
+                                    <li>{{ _("Include the Bryntum Gantt library files") }}</li>
+                                    <li>{{ _("Replace the placeholder code with actual Bryntum initialization") }}</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/assets/advanced_gantt/js/gantt_component.js"></script>
+<script>
+    let ganttChart = null;
+    
+    frappe.ready(function() {
+        // Initialize date inputs with default values
+        const today = new Date();
+        const startDate = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+        const endDate = new Date(today.getTime() + 90 * 24 * 60 * 60 * 1000);
+        
+        document.getElementById('start-date').value = startDate.toISOString().split('T')[0];
+        document.getElementById('end-date').value = endDate.toISOString().split('T')[0];
+        
+        // Initialize Gantt chart
+        initializeGanttChart();
+        
+        // Event listeners
+        document.getElementById('apply-filters').addEventListener('click', applyFilters);
+        document.getElementById('reset-filters').addEventListener('click', resetFilters);
+        document.getElementById('project-filter').addEventListener('change', applyFilters);
+    });
+    
+    function initializeGanttChart() {
+        const project = document.getElementById('project-filter').value;
+        const startDate = document.getElementById('start-date').value;
+        const endDate = document.getElementById('end-date').value;
+        
+        // Destroy existing chart if any
+        if (ganttChart) {
+            ganttChart.destroy();
+        }
+        
+        // Create new chart
+        ganttChart = new AdvancedGanttChart({
+            container: '#gantt-container',
+            project: project || null,
+            startDate: startDate || null,
+            endDate: endDate || null
+        });
+    }
+    
+    function applyFilters() {
+        initializeGanttChart();
+    }
+    
+    function resetFilters() {
+        document.getElementById('project-filter').value = '';
+        
+        const today = new Date();
+        const startDate = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+        const endDate = new Date(today.getTime() + 90 * 24 * 60 * 60 * 1000);
+        
+        document.getElementById('start-date').value = startDate.toISOString().split('T')[0];
+        document.getElementById('end-date').value = endDate.toISOString().split('T')[0];
+        
+        initializeGanttChart();
+    }
+    
+    // Global functions for button clicks
+    window.ganttChart = {
+        refreshData: function() {
+            if (ganttChart) {
+                ganttChart.refreshData();
+            }
+        },
+        exportData: function() {
+            if (ganttChart) {
+                ganttChart.exportData();
+            }
+        }
+    };
+</script>
+{% endblock %}

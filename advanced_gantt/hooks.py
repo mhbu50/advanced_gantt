@@ -9,12 +9,12 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/advanced_gantt/css/advanced_gantt.css"
-# app_include_js = "/assets/advanced_gantt/js/advanced_gantt.js"
+app_include_css = "/assets/advanced_gantt/css/gantt_styles.css"
+app_include_js = "/assets/advanced_gantt/js/gantt_component.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/advanced_gantt/css/advanced_gantt.css"
-# web_include_js = "/assets/advanced_gantt/js/advanced_gantt.js"
+web_include_css = "/assets/advanced_gantt/css/gantt_styles.css"
+web_include_js = "/assets/advanced_gantt/js/gantt_component.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "advanced_gantt/public/scss/website"

@@ -1,0 +1,184 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-31 20:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_settings_section",
+  "default_view_preset",
+  "default_start_date_offset",
+  "default_end_date_offset",
+  "auto_refresh_interval",
+  "column_break_5",
+  "show_progress_line",
+  "show_dependencies",
+  "enable_task_editing",
+  "enable_drag_drop",
+  "advanced_settings_section",
+  "bryntum_license_key",
+  "custom_css",
+  "column_break_11",
+  "custom_js",
+  "integration_settings_section",
+  "sync_with_project_updates",
+  "update_task_dates_on_drag",
+  "create_dependencies_on_link",
+  "column_break_16",
+  "notification_settings",
+  "send_email_on_task_update"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Settings"
+  },
+  {
+   "default": "weekAndDayLetter",
+   "fieldname": "default_view_preset",
+   "fieldtype": "Select",
+   "label": "Default View Preset",
+   "options": "hourAndDay\ndayAndWeek\nweekAndDayLetter\nweekAndMonth\nmonthAndYear\nyear"
+  },
+  {
+   "default": "30",
+   "fieldname": "default_start_date_offset",
+   "fieldtype": "Int",
+   "label": "Default Start Date Offset (days)"
+  },
+  {
+   "default": "90",
+   "fieldname": "default_end_date_offset",
+   "fieldtype": "Int",
+   "label": "Default End Date Offset (days)"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_refresh_interval",
+   "fieldtype": "Int",
+   "label": "Auto Refresh Interval (minutes, 0 = disabled)"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": 1,
+   "fieldname": "show_progress_line",
+   "fieldtype": "Check",
+   "label": "Show Progress Line"
+  },
+  {
+   "default": 1,
+   "fieldname": "show_dependencies",
+   "fieldtype": "Check",
+   "label": "Show Dependencies"
+  },
+  {
+   "default": 1,
+   "fieldname": "enable_task_editing",
+   "fieldtype": "Check",
+   "label": "Enable Task Editing"
+  },
+  {
+   "default": 1,
+   "fieldname": "enable_drag_drop",
+   "fieldtype": "Check",
+   "label": "Enable Drag & Drop"
+  },
+  {
+   "fieldname": "advanced_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced Settings"
+  },
+  {
+   "fieldname": "bryntum_license_key",
+   "fieldtype": "Password",
+   "label": "Bryntum License Key"
+  },
+  {
+   "fieldname": "custom_css",
+   "fieldtype": "Code",
+   "label": "Custom CSS",
+   "options": "CSS"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_js",
+   "fieldtype": "Code",
+   "label": "Custom JavaScript",
+   "options": "JavaScript"
+  },
+  {
+   "fieldname": "integration_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Integration Settings"
+  },
+  {
+   "default": 1,
+   "fieldname": "sync_with_project_updates",
+   "fieldtype": "Check",
+   "label": "Sync with Project Updates"
+  },
+  {
+   "default": 1,
+   "fieldname": "update_task_dates_on_drag",
+   "fieldtype": "Check",
+   "label": "Update Task Dates on Drag"
+  },
+  {
+   "default": 1,
+   "fieldname": "create_dependencies_on_link",
+   "fieldtype": "Check",
+   "label": "Create Dependencies on Link"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_settings",
+   "fieldtype": "Heading",
+   "label": "Notification Settings"
+  },
+  {
+   "default": 0,
+   "fieldname": "send_email_on_task_update",
+   "fieldtype": "Check",
+   "label": "Send Email on Task Update"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-10-31 20:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Advanced Gantt",
+ "name": "Gantt Chart Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Project Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
